@@ -17,7 +17,7 @@ export class UserController {
       );
       res.status(200).send(token);
     } else {
-      res.status(401).send("Invalid credentials");
+      res.status(400).send("Invalid credentials");
     }
   }
 }

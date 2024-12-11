@@ -1,0 +1,2 @@
+2024-12-08T19:53:06.975Z POST /api/users/signin {"email":"buyer@ecom.com","password":"buyer123"}
+{"level":"info","message":"POST /api/cartItems?productId=1&quantity=2 {}","service":"request-logging"}

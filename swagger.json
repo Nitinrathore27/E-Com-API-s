@@ -1,0 +1,69 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Sample API",
+    "description": "API description for ECOM API's.",
+    "version": "1.0.0"
+  },
+
+  "host": "localhost:3200",
+  "securityDefinitions": {
+    "jwt": {
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey"
+    }
+  },
+  "paths": {
+    "/api/users/signin": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Sign in",
+        "description": "Sign in",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Usser LogIn to get Token",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "400": {
+            "description": "Incorrect Credentials"
+          }
+        }
+      }
+    },
+    "/api/products": {
+      "get": {
+        "tags": ["Products"],
+        "summary": "Get Products",
+        "description": "Get all products from the database",
+        "security": [{ "jwt": {} }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    }
+  }
+}
